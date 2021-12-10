@@ -12,7 +12,7 @@ cp pom.xml logging-log4j2-log4j-2.15.0-rc2/pom.xml
 rm logging-log4j2-log4j-2.15.0-rc2/log4j-api/src/test/java/org/apache/logging/log4j/util/StackLocatorUtilTest.java
 
 ## docker build
-docker run -d --name mvn11 -v ${PWD}/toolchains.xml:/root/.m2/toolchains.xml -v ${PWD}/logging-log4j2-log4j-2.15.0-rc2:/tmp/logging-log4j2-log4j-2.15.0-rc2  maven:3.8-openjdk-11-slim tail -f /dev/null 
+docker run -d --name mvn11 -v ${PWD}/toolchains.xml:/root/.m2/toolchains.xml -v ${PWD}/settings.xml:/root/.m2/settings.xml -v ${PWD}/toolchains.xml:/root/.m2/toolchains.xml -v ${PWD}/logging-log4j2-log4j-2.15.0-rc2:/tmp/logging-log4j2-log4j-2.15.0-rc2  maven:3.8-openjdk-11-slim tail -f /dev/null
 docker exec -it mvn11 bash
 cd /tmp/logging-log4j2-log4j-2.15.0-rc2/
 mvn package -DskipTests=true
@@ -45,8 +45,9 @@ package log
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  55.575 s
-[INFO] Finished at: 2021-12-10T14:51:17Z
+[INFO] Total time:  04:25 min
+[INFO] Finished at: 2021-12-10T15:42:05Z
 [INFO] ------------------------------------------------------------------------
 ```
 
+<!---->
